@@ -1,0 +1,1 @@
+# UrbanTech Offices Website\n\n1. Run `npm install`\n2. Run `npm run dev`\n3. Open link shown (usually http://localhost:5173)\n\nReplace WhatsApp number in `App.jsx` and `WhatsAppButton.jsx`.\n

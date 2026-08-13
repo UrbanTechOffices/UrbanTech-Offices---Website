@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ Ensure full-width layout and prevent white side borders */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Only body should own the page scrollbar. If both html and body (or
+   #root) get overflow-x:hidden, each one's overflow-y auto-computes to
+   "auto" (per the CSS overflow spec), so each becomes its own nested
+   scroll container with its own internal scrollbar — reserving extra
+   width and leaving a body-background sliver visible on the right edge
+   of every section. Setting it only on body avoids the nesting. */
+body {
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+}
+
+.img-cover {
+  object-fit: cover;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* existing rules you had... */
+html, body, #root { height: 100%; }
+body { @apply bg-slate-50 text-slate-800 antialiased; }
+.img-cover { object-fit: cover; }
+
+/* --------- New layout helpers for full-bleed & overlays ---------- */
+
+/* Make the background image act like a stable cinematic piece */
+.section-bg {
+  background-attachment: fixed; /* keeps image stable while content moves on top */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+}
+
+/* container that limits text width but keeps the section full-bleed */
+.container-hero {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* full-bleed shim: stretch to viewport edges (removes side gutters) */
+.full-bleed {
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+}
+
+/* dark overlays for legibility */
+.overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+.overlay-dark\/50 {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.overlay-dark\/70 {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1;
+}
+
+/* helper to ensure our moving SVGs sit above background but below content */
+.pointer-events-none {
+  pointer-events: none;
+}
+
+/* small responsive tweak for the hero content */
+@media (min-width: 768px) {
+  .container-hero { padding-left: 48px; padding-right: 48px; }
+}
+
+/* fade overlays between sections */
+.section-bg::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(11, 18, 32, 0.9) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
