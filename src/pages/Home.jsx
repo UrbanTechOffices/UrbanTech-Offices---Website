@@ -21,6 +21,10 @@ import {
   Building2,
 } from "lucide-react";
 import CurvedDivider from "../components/CurvedDivider";
+import bg1 from "../assets/backgrounds/bg1.jpg";
+import bg2 from "../assets/backgrounds/bg2.jpg";
+import bg3 from "../assets/backgrounds/bg3.jpg";
+import bg4 from "../assets/backgrounds/bg4.jpg";
 
 const AMENITIES = [
   { label: "High-Speed Internet", icon: Wifi },
@@ -105,7 +109,7 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-[90vh] flex flex-col justify-center text-center overflow-hidden"
       >
-        <ParallaxLayer sectionRef={heroRef} image="/src/assets/backgrounds/bg1.jpg" range={70} />
+        <ParallaxLayer sectionRef={heroRef} image={bg1} range={70} />
 
         <div className="absolute inset-0 bg-black/60 z-[1]" />
 
@@ -150,7 +154,7 @@ export default function Home() {
         ref={amenRef}
         className="relative min-h-[80vh] flex items-center justify-center text-center overflow-hidden py-24"
       >
-        <ParallaxLayer sectionRef={amenRef} image="/src/assets/backgrounds/bg2.jpg" range={50} />
+        <ParallaxLayer sectionRef={amenRef} image={bg2} range={50} />
 
         <div className="absolute inset-0 bg-black/60 z-[1]" />
 
@@ -202,7 +206,7 @@ export default function Home() {
         ref={statsRef}
         className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-24"
       >
-        <ParallaxLayer sectionRef={statsRef} image="/src/assets/backgrounds/bg3.jpg" range={50} />
+        <ParallaxLayer sectionRef={statsRef} image={bg3} range={50} />
 
         <div className="absolute inset-0 bg-black/70 z-[1]" />
 
@@ -295,7 +299,7 @@ export default function Home() {
         ref={consultRef}
         className="relative min-h-[70vh] flex items-center overflow-hidden py-24"
       >
-        <ParallaxLayer sectionRef={consultRef} image="/src/assets/backgrounds/bg4.jpg" range={50} />
+        <ParallaxLayer sectionRef={consultRef} image={bg4} range={50} />
 
         <div className="absolute inset-0 bg-black/70 z-[1]" />
 

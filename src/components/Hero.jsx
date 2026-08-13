@@ -1,13 +1,14 @@
 // src/components/Hero.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import bg1 from "../assets/backgrounds/bg1.jpg";
 
 export default function Hero() {
   return (
     <header
       className="relative w-full min-h-screen flex items-center justify-center text-white"
       style={{
-        backgroundImage: "url('/src/assets/backgrounds/bg1.jpg')",
+        backgroundImage: `url(${bg1})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
